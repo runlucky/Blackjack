@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Blackjack.Cards
+namespace Blackjack.Cards.Card
 {
-    class Suit
+    internal interface NullObject
     {
     }
 }
