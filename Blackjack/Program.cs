@@ -1,5 +1,4 @@
-﻿using Blackjack.Hand;
-using System;
+﻿using System;
 
 namespace Blackjack
 {

@@ -1,4 +1,4 @@
-﻿using Blackjack.Hand;
+﻿using Blackjack.Player;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,18 +8,20 @@ namespace Blackjack
     internal class Table
     {
         private readonly Deck _deck = new Deck();
-        private readonly Player _player = new Player();
+        private readonly Challenger _challenger = new Challenger();
         private readonly Dealer _dealer = new Dealer();
 
         public void StartGame()
         {
             Console.WriteLine("Game start.");
 
-            _player.Setup(_deck);
-            _dealer.Setup(_deck);
+            _challenger.Deal(_deck);
+            _challenger.ShowHand();
+            _dealer.Deal(_deck);
+            _dealer.ShowFirstHand();
 
-            _player.Action(_deck);
-            if (_player.IsBust())
+            _challenger.Action(_deck);
+            if (_challenger.IsBust())
             {
                 Console.WriteLine("You Lose");
                 return;
@@ -33,14 +35,14 @@ namespace Blackjack
         private string Judge()
         {
             if (IsPlayerWin()) return "You win!";
-            else if (_player.Point() == _dealer.Point()) return "Draw Game...";
+            else if (_challenger.Point() == _dealer.Point()) return "Draw Game...";
             else return "You Loose.";
         }
 
         private bool IsPlayerWin()
         {
             if (_dealer.IsBust()) return true;
-            return _player.Point() > _dealer.Point();
+            return _challenger.Point() > _dealer.Point();
         }
 
         public bool ShouldContinue()

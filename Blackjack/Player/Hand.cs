@@ -3,18 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Blackjack.Hand
+namespace Blackjack.Player
 {
-    internal abstract class HandBase : IHand
+    internal class Hand : IHand
     {
         private readonly List<Card> _cards = new List<Card>();
 
         public virtual void AddCard(Card card) => _cards.Add(card);
-
-        public void Hit(Card card)
-        {
-            AddCard(card);
-        }
 
         public int Point() => _cards.Select(x => x.Point()).Sum();
 
@@ -22,10 +17,8 @@ namespace Blackjack.Hand
 
         public void RefreshHand() => _cards.Clear();
 
-        public abstract void ShowHand();
+        public string ShowCards() => string.Join(" ", _cards.Select(x => x.Show()));
 
-        public abstract void Setup(Deck deck);
-
-        public string CardList() => string.Join(" ", _cards.Select(x => x.Show()));
+        public string ShowFirstCard() => _cards.FirstOrDefault()?.Show() ?? "";
     }
 }
