@@ -23,6 +23,36 @@ namespace Blackjack.Hand
             base.AddCard(card);
         }
 
-        public override void ShowHand() => Console.WriteLine($"Your points is {Point()}.");
+        public void Action(Deck deck)
+        {
+            while (ShouldHit())
+            {
+                Hit(deck.Draw());
+                if (IsBust()) return;
+            }
+        }
+
+        private bool ShouldHit()
+        {
+            Console.WriteLine("");
+            ShowHand();
+            Console.WriteLine("Hit or Stand? (h/s)");
+
+            try
+            {
+                while (true)
+                {
+                    var key = Console.ReadKey().Key;
+                    if (key == ConsoleKey.H) return true;
+                    if (key == ConsoleKey.S) return false;
+                }
+            }
+            finally
+            {
+                Console.WriteLine("");
+            }
+        }
+
+        public override void ShowHand() => Console.WriteLine($"Your Hand : {CardList()} ({Point()})");
     }
 }

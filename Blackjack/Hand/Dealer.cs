@@ -6,7 +6,7 @@ namespace Blackjack.Hand
 {
     internal class Dealer : HandBase
     {
-        public override void ShowHand() => Console.WriteLine($"Dealer points is {Point()}.");
+        public override void ShowHand() => Console.WriteLine($"Dealer Hand : {CardList()} ({Point()})");
 
         public bool ShouldDraw() => Point() < 17;
 
@@ -18,6 +18,12 @@ namespace Blackjack.Hand
             Console.WriteLine($"Dealer Draw Cards: {card.Show()}, ?");
             AddCard(card);
             AddCard(deck.Draw());
+        }
+
+        public void Action(Deck deck)
+        {
+            while (ShouldDraw()) AddCard(deck.Draw());
+            ShowHand();
         }
     }
 }

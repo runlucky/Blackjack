@@ -12,8 +12,6 @@ namespace Blackjack
             {
                 table.StartGame();
             } while (table.ShouldContinue());
-
-            Console.ReadKey();
         }
     }
 }

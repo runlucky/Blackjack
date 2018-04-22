@@ -27,7 +27,7 @@ namespace Blackjack.Tests
         public void カード53枚引く()
         {
             var deck = new Deck();
-            foreach (var v in Enumerable.Range(1, 53)) deck.Draw();
+            foreach (var v in Enumerable.Range(1, 53)) deck.Draw().IsNotNull();
         }
     }
 }

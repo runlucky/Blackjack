@@ -25,5 +25,7 @@ namespace Blackjack.Hand
         public abstract void ShowHand();
 
         public abstract void Setup(Deck deck);
+
+        public string CardList() => string.Join(" ", _cards.Select(x => x.Show()));
     }
 }
