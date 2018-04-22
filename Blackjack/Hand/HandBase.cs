@@ -7,7 +7,7 @@ namespace Blackjack.Hand
 {
     internal abstract class HandBase : IHand
     {
-        private List<Card> _cards = new List<Card>();
+        private readonly List<Card> _cards = new List<Card>();
 
         public virtual void AddCard(Card card) => _cards.Add(card);
 

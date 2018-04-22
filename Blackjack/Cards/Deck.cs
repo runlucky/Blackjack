@@ -8,7 +8,7 @@ namespace Blackjack
 {
     internal class Deck : IDeck
     {
-        private List<Card> _cards = new List<Card>();
+        private readonly List<Card> _cards = new List<Card>();
 
         public Deck()
         {
