@@ -1,4 +1,5 @@
-﻿using Blackjack.Player;
+﻿using Blackjack.Cards.Card;
+using Blackjack.Player;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -32,7 +33,7 @@ namespace Blackjack.Tests
         {
             TestContext.Run((int[] ranks, int point) =>
             {
-                _hand.RefreshHand();
+                _hand.Discard();
                 foreach (var v in ranks) _hand.AddCard(new Card(Suit.Club, v));
                 _hand.Point().Is(point);
             });

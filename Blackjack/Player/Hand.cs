@@ -11,21 +11,19 @@ namespace Blackjack.Player
 
         public virtual void AddCard(Card card) => _cards.Add(card);
 
-        public int Point(){
+        public int Point()
+        {
             var point = _cards.Select(x => x.Point()).Sum();
-            foreach (var v in _cards.Where(x => x.Point() == 1))
-            {
-                if (point + 10 <= 21)
-                {
-                    point += 10;
-                }
-            }
+            if (point + 10 > 21) return point;
+            if (HasAce()) point += 10;
             return point;
         }
 
+        private bool HasAce() => _cards.Any(x => x.IsAce());
+
         public bool IsBust() => Point() > 21;
 
-        public void RefreshHand() => _cards.Clear();
+        public void Discard() => _cards.Clear();
 
         public string ShowCards() => string.Join(" ", _cards.Select(x => x.Show()));
 

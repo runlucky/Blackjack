@@ -1,55 +1,25 @@
 ﻿using Blackjack.Cards;
+using Blackjack.Cards.Card;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Blackjack
 {
-    internal enum Suit
-    {
-        Spade,
-        Club,
-        Diamond,
-        Heart
-    }
-
     internal class Card : ICard
     {
-        private readonly Suit _suit;
-        private readonly int _rank;
+        private readonly Suits _suit;
+        private readonly Rank _rank;
 
         public Card(Suit suit, int rank)
         {
-            _suit = suit;
-            _rank = rank;
+            _suit = new Suits(suit);
+            _rank = new Rank(rank);
         }
 
-        public string Show() => ShowSuit() + ShowRank();
+        public string Show() => _suit.Show() + _rank.Show();
 
-        private string ShowRank()
-        {
-            switch (_rank)
-            {
-                case 1: return "A";
-                case 11: return "J";
-                case 12: return "Q";
-                case 13: return "K";
-                default: return _rank.ToString();
-            }
-        }
-
-        private string ShowSuit()
-        {
-            switch (_suit)
-            {
-                case Suit.Spade: return "♠";
-                case Suit.Club: return "♣";
-                case Suit.Diamond: return "♦";
-                case Suit.Heart: return "♥";
-                default: return "";
-            }
-        }
-
-        public int Point() => Math.Min(_rank, 10);
+        public int Point() => _rank.Point();
+        public bool IsAce() => _rank.IsAce();
     }
 }

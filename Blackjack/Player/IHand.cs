@@ -12,6 +12,6 @@ namespace Blackjack.Player
 
         int Point();
 
-        void RefreshHand();
+        void Discard();
     }
 }

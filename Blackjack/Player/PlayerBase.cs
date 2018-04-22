@@ -15,17 +15,15 @@ namespace Blackjack.Player
 
         public bool IsBust() => hand.IsBust();
 
-        public void RefreshHand() => hand.RefreshHand();
-
         public abstract void ShowHand();
 
         public void Deal(Deck deck)
         {
-            RefreshHand();
+            hand.Discard();;
             Hit(deck.Draw());
             Hit(deck.Draw());
         }
 
-        public string CardList() => hand.ShowCards();
+        protected string CardList() => hand.ShowCards();
     }
 }

@@ -1,4 +1,5 @@
-﻿using Blackjack.Extensions;
+﻿using Blackjack.Cards.Card;
+using Blackjack.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,15 +13,14 @@ namespace Blackjack
 
         public Deck()
         {
-            Restore();
-
+            Refill();
         }
 
         public int Count() => _cards.Count;
 
         public Card Draw()
         {
-            if (_cards.IsEmpty()) Restore();
+            if (_cards.IsEmpty()) Refill();
 
             var card = _cards.RandomAt();
             _cards.Remove(card);
@@ -31,7 +31,7 @@ namespace Blackjack
 
         public bool IsEmpty() => _cards.IsEmpty();
 
-        public void Restore()
+        public void Refill()
         {
             _cards.Clear();
 

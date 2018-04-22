@@ -1,4 +1,5 @@
 ﻿using Blackjack;
+using Blackjack.Cards.Card;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Blackjack.Tests
@@ -17,8 +18,8 @@ namespace Blackjack.Tests
         {
             TestContext.Run((int rank, string output) =>
             {
-                var card = new Card(Suit.Club, rank);
-                var aa = (card.AsDynamic().ShowRank() as string);
+                var rnk = new Rank(rank);
+                var aa = (rnk.AsDynamic().Show() as string);
                 aa.Is(output);
             });
         }

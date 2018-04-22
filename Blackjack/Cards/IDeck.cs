@@ -14,6 +14,6 @@ namespace Blackjack
 
         Card Draw();
 
-        void Restore();
+        void Refill();
     }
 }
