@@ -13,11 +13,10 @@ namespace Blackjack
         Heart
     }
 
-    internal class Card: ICard
+    internal class Card : ICard
     {
         private Suit _suit;
-        private int _rank; 
-
+        private int _rank;
 
         public Card(Suit suit, int rank)
         {
@@ -25,12 +24,7 @@ namespace Blackjack
             _rank = rank;
         }
 
-        public string Show()
-        {
-
-            Console.WriteLine(ShowSuit() + ShowRank());
-            throw new NotImplementedException();
-        }
+        public string Show() => ShowSuit() + ShowRank();
 
         private string ShowRank()
         {
