@@ -9,10 +9,11 @@ namespace Blackjack.Hand
     {
         private List<Card> _cards = new List<Card>();
 
-        public string AddCard(Card card)
+        public virtual void AddCard(Card card) => _cards.Add(card);
+
+        public void Hit(Card card)
         {
-            _cards.Add(card);
-            return "draw: " + card.Show();
+            AddCard(card);
         }
 
         public int Point() => _cards.Select(x => x.Point()).Sum();
@@ -21,6 +22,8 @@ namespace Blackjack.Hand
 
         public void RefreshHand() => _cards.Clear();
 
-        public abstract string ShowHand();
+        public abstract void ShowHand();
+
+        public abstract void Setup(Deck deck);
     }
 }

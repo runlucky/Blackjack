@@ -19,6 +19,8 @@ namespace Blackjack
 
         public Card Draw()
         {
+            if (_cards.IsEmpty()) Restore();
+
             var card = _cards.RandomAt();
             _cards.Remove(card);
             return card;

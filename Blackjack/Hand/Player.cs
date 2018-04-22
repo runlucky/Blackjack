@@ -6,9 +6,23 @@ namespace Blackjack.Hand
 {
     internal class Player : HandBase
     {
-        public override string ShowHand()
+        public override void Setup(Deck deck)
         {
-            return "your points is " + Point();
+            RefreshHand();
+            Console.Write("Player Draw Cards: ");
+
+            AddCard(deck.Draw());
+            Console.Write(", ");
+            AddCard(deck.Draw());
+            Console.WriteLine("");
         }
+
+        public override void AddCard(Card card)
+        {
+            Console.Write(card.Show());
+            base.AddCard(card);
+        }
+
+        public override void ShowHand() => Console.WriteLine($"Your points is {Point()}.");
     }
 }

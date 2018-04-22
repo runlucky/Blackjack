@@ -6,7 +6,7 @@ namespace Blackjack.Hand
 {
     internal interface IHand
     {
-        string AddCard(Card card);
+        void AddCard(Card card);
 
         int Point();
 
