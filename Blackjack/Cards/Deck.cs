@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Blackjack.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,18 +19,14 @@ namespace Blackjack
 
         public Card Draw()
         {
-            throw new NotImplementedException();
+            var card = _cards.RandomAt();
+            _cards.Remove(card);
+            return card;
         }
 
-        public bool HasCard()
-        {
-            throw new NotImplementedException();
-        }
+        public bool HasCard() => _cards.Any();
 
-        public bool IsEmpty()
-        {
-            throw new NotImplementedException();
-        }
+        public bool IsEmpty() => _cards.IsEmpty();
 
         public void Restore()
         {
