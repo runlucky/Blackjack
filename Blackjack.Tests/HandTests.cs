@@ -32,6 +32,7 @@ namespace Blackjack.Tests
         {
             TestContext.Run((int[] ranks, int point) =>
             {
+                _hand.RefreshHand();
                 foreach (var v in ranks) _hand.AddCard(new Card(Suit.Club, v));
                 _hand.Point().Is(point);
             });
