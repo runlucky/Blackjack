@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blackjack", "Blackjack\Blackjack.csproj", "{9933EC7A-A24A-4DD7-BF3F-1875E44499F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blackjack.Tests", "BlackjackTests\Blackjack.Tests.csproj", "{0C081EF1-51C7-4096-8E8F-F9C872F1B69D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blackjack.Tests", "BlackjackTests\Blackjack.Tests.csproj", "{0C081EF1-51C7-4096-8E8F-F9C872F1B69D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

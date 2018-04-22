@@ -35,6 +35,24 @@ namespace Blackjack.Tests
                 var card = new Card(suit, rank);
                 card.Show().Is(output);
             });
+
+            System.Math.Min(10, 11);
+        }
+
+        [TestMethod]
+        [TestCase(1, 1)]
+        [TestCase(9, 9)]
+        [TestCase(10, 10)]
+        [TestCase(11, 10)]
+        [TestCase(12, 10)]
+        [TestCase(13, 10)]
+        public void ポイントの取得()
+        {
+            TestContext.Run((int rank, int point) =>
+            {
+                var card = new Card(Suit.Club, rank);
+                card.Point().Is(point);
+            });
         }
     }
 }

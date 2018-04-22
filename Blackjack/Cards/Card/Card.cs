@@ -15,8 +15,8 @@ namespace Blackjack
 
     internal class Card : ICard
     {
-        private Suit _suit;
-        private int _rank;
+        private readonly Suit _suit;
+        private readonly int _rank;
 
         public Card(Suit suit, int rank)
         {
@@ -50,9 +50,6 @@ namespace Blackjack
             }
         }
 
-        public int ToNumber()
-        {
-            throw new NotImplementedException();
-        }
+        public int Point() => Math.Min(_rank, 10);
     }
 }

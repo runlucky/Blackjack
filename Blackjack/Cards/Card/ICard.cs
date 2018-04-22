@@ -7,6 +7,7 @@ namespace Blackjack.Cards
     internal interface ICard
     {
         string Show();
-        int ToNumber();
+
+        int Point();
     }
 }

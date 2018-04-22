@@ -6,9 +6,14 @@ namespace Blackjack
 {
     internal interface IDeck
     {
+        int Count();
+
         bool IsEmpty();
+
         bool HasCard();
+
         Card Draw();
+
         void Restore();
     }
 }

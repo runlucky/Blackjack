@@ -9,6 +9,7 @@ namespace Blackjack
     internal class NullCard : ICard, NullObject
     {
         public string Show() => "";
-        public int ToNumber() => 0;
+
+        public int Point() => 0;
     }
 }
