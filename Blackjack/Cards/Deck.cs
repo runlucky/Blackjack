@@ -13,6 +13,7 @@ namespace Blackjack
         public Deck()
         {
             Restore();
+
         }
 
         public int Count() => _cards.Count;
