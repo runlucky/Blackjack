@@ -13,14 +13,13 @@ namespace Blackjack.Player
             while (ShouldHit())
             {
                 Hit(deck.Draw());
+                ShowHand();
                 if (IsBust()) return;
             }
         }
 
         private bool ShouldHit()
         {
-            Console.WriteLine("");
-            ShowHand();
             Console.WriteLine("Hit or Stand? (h/s)");
 
             try
@@ -34,7 +33,7 @@ namespace Blackjack.Player
             }
             finally
             {
-                Console.WriteLine("");
+                Console.WriteLine("\n");
             }
         }
     }

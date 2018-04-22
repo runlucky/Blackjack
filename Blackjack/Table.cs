@@ -13,12 +13,15 @@ namespace Blackjack
 
         public void StartGame()
         {
+            Console.WriteLine("-----------");
             Console.WriteLine("Game start.");
 
             _challenger.Deal(_deck);
             _challenger.ShowHand();
             _dealer.Deal(_deck);
             _dealer.ShowFirstHand();
+
+            Console.WriteLine("");
 
             _challenger.Action(_deck);
             if (_challenger.IsBust())
@@ -28,6 +31,7 @@ namespace Blackjack
             }
 
             _dealer.Action(_deck);
+            Console.WriteLine("");
 
             Console.WriteLine(Judge());
         }
@@ -59,7 +63,7 @@ namespace Blackjack
             }
             finally
             {
-                Console.WriteLine("");
+                Console.WriteLine("\n");
             }
         }
     }
